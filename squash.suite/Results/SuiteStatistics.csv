@@ -1,1 +1,4 @@
-Script,Last Status,Runs,Fails,First Run,Last Run,Avg Time(Success)
+﻿Script,Last Status,Runs,Fails,First Run,Last Run,Avg Time(Success)
+main,Success,1,0,2024-03-15 09:19:23 +0100,2024-03-15 09:19:23 +0100,0:00:10
+TC133,Success,1,0,2024-03-15 09:19:48 +0100,2024-03-15 09:19:48 +0100,0:00:02
+testcase134,Success,1,0,2024-03-15 09:21:04 +0100,2024-03-15 09:21:04 +0100,0:00:06

@@ -1,0 +1,4 @@
+﻿Log "Start of script" && short name of me && "with parameters" && the params
+Click text:(any item of "Contacts,Favorites,History,Downloads")
+Wait random(2, 6)
+CaptureScreen "testcase134"
