@@ -1,0 +1,12 @@
+﻿
+to handle that_the_TutorialSUT_connection_is_made
+	connect TutorialSUT
+end that_the_TutorialSUT_connection_is_made
+
+to handle click_a_random_page
+	Click text:(any item of "Contacts,Favorites,History,Downloads")
+end click_a_random_page
+
+to handle the_display_should_change
+	
+end the_display_should_change
