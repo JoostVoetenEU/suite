@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?><TableScript xmlns="http://www.testplant.com/xmlns/TableScript/2014">
+<Lines>
+<Line><Action
+  >Connect</Action
+><Arguments
+  >TutorialSUT</Arguments
+><ExpectedValueExpression
+  ></ExpectedValueExpression
+><Comment
+  ></Comment
+></Line>
+</Lines>
+</TableScript>
