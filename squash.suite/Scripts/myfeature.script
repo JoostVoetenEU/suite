@@ -8,5 +8,6 @@ to handle click_a_random_page
 end click_a_random_page
 
 to handle the_display_should_change
-	
+	Wait random(2, 6)
+	CaptureScreen "feature"
 end the_display_should_change
