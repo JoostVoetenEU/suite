@@ -1,0 +1,3 @@
+﻿run myfeature.that_the_TutorialSUT_connection_is_made
+RunWithNewResults "select_page"
+run myfeature.the_display_should_change
