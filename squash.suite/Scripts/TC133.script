@@ -2,6 +2,6 @@
 Click text:(any item of "Contacts,Favorites,History,Downloads")
 Wait random(2, 6)
 CaptureScreen {Name: "TC133",Increment: true}
-Click text:(any item of "Contacts,Favorites,History,Downloads,Joost")
+Click text:(any item of "Contacts,Joost")
 Wait random(2, 6)
 CaptureScreen {Name: "TC133",Increment: true}
