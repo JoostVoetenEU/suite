@@ -1,0 +1,5 @@
+﻿Log "Start " && MyCounter && "of script" && short name of me && "with parameters" && the params
+Click text:(any item of "Contacts,Favorites,History,Downloads","Joost")
+Wait random(2, 6)
+CaptureScreen
+Log "End of script" && short name of me
