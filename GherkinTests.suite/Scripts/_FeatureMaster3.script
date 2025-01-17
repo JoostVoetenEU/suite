@@ -1,0 +1,17 @@
+﻿set global wait_time to 3
+set the ScriptTracing to All
+Log "-------------------------------------------------------" && the short name of me
+BeginTestCase " -- Feature Test Hooks -- "
+//Gherkin hooks were implemented in Feature #12185
+
+runFeature "FeatureTest_NoHooks.feature"
+put the result into testHooksResult
+//put testHooksResult
+
+If testHooksResult.status is "Success" and testHooksResult.Successes is 7
+	LogSuccess "Feature test with hooks passes."
+else
+	LogError "Feature test with hooks fails."
+End if
+
+EndTestCase " -- Feature Test Hooks -- "

@@ -1,0 +1,4 @@
+—Call feature file with tags: /Applications/eggPlant.app/runscript /Users/jeanette/Documents/TestProjects/ePF/CornerStoneWorkingCopy/Jeannette/eggPlantTestSuites/GherkinTests.suite/Features/FeatureTest_BasicTags.feature -param "@missingDescription,@severalProducts"  -CommandLineOutput yes
+
+—Call feature files from master script
+/Applications/eggPlant.app/runscript /Users/jeanette/Documents/TestProjects/ePF/CornerStoneWorkingCopy/Jeannette/eggPlantTestSuites/GherkinTests.suite/Scripts/FeatureMaster1.script -CommandLineOutput yes

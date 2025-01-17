@@ -1,0 +1,92 @@
+﻿
+
+
+
+to handle given_the_calculator_is_running
+	if imageFound("CalculatorApp")
+		log "Calculator is running"
+	else 
+		log "The calculator is not running. Start the calculator."
+		Click("Win7StartMenuIcon")
+		WaitFor 10, "Searchprogramsandfiles"
+		typeText "calculator", return
+		waitFor 10, "CalculatorApp"
+	end if
+	
+end given_the_calculator_is_running
+
+
+to handle and_we_clear_the_calculator
+
+	Set the SearchRectangle to  ("CalcRectangle_A","CalcRectangle_B")
+	
+	waitFor 5,"CalculatorClearButton"
+	Click "CalculatorClearButton"
+	
+	Set the SearchRectangle to  empty
+	
+	
+end and_we_clear_the_calculator
+
+to handle first_number_is_VAR
+	params num1
+	log num1
+	
+	Set the SearchRectangle to  ("CalcRectangle_A","CalcRectangle_B")
+	
+	typetext num1
+	
+	Set the SearchRectangle to  empty
+	
+end first_number_is_VAR
+
+
+
+to handle we_click_add
+
+	Set the SearchRectangle to  ("CalcRectangle_A","CalcRectangle_B")
+	TypeText "+"
+	
+	Set the SearchRectangle to  empty
+	
+	
+end we_click_add
+
+
+to handle second_number_is_VAR
+	params num2
+	log num2
+	
+	Set the SearchRectangle to  ("CalcRectangle_A","CalcRectangle_B")
+	
+	typetext num2
+	
+	Set the SearchRectangle to  empty
+	
+end second_number_is_VAR
+
+
+to handle the_result_should_be_the_value_VAR
+	params sum
+	
+	Set the SearchRectangle to  ("CalcRectangle_A","CalcRectangle_B")
+	
+	log params
+	click "EqualsButton"
+	
+	if ImageFound(Text:sum)
+		log "Success"
+	else
+		LogError "fail"
+	end if
+	
+	
+	//Clear and close the Calculator App
+	waitFor 5,"CalculatorClearButton"
+	Click "CalculatorClearButton"
+	
+	Click "WinCloseButton_red"
+	
+	Set the SearchRectangle to  empty
+	
+end the_result_should_be_the_value_VAR

@@ -1,0 +1,16 @@
+﻿
+Log "-------------------------------------------------------"
+BeginTestCase " -- Feature Test Hooks -- "
+//Gherkin hooks were implemented in Feature #12185
+
+runFeature "FeatureTest_Hooks.feature"
+put the result into testHooksResult
+//put testHooksResult
+
+If testHooksResult.status is "Success" and testHooksResult.Successes is 3
+	LogSuccess "Feature test with hooks passes."
+else
+	LogError "Feature test with hooks fails."
+End if
+
+EndTestCase " -- Feature Test Hooks -- "

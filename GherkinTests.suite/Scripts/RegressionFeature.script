@@ -1,0 +1,65 @@
+﻿
+to handle we_have_a_number_VAR
+	params num1
+	log num1
+	
+end we_have_a_number_VAR
+
+to handle a_second_number_VAR
+	params num2
+	log num2
+	
+end a_second_number_VAR
+
+to handle we_add_VAR_with_VAR
+	params num1, num2
+	
+	set addedSum = num1 + num2
+	log addedSum
+	
+end we_add_VAR_with_VAR
+
+
+to handle the_sum_of_VAR_and_VAR_should_be_VAR
+	params num1, num2, sum
+	
+	log "The expected sum is:" && sum
+	
+	set addedSum = num1 + num2
+	log "The resulting sum is:" && addedSum
+	
+	if addedSum = sum 
+		log "They are the same: success"
+	else 
+		log "They are not the same: fail"
+	end if
+	
+end the_sum_of_VAR_and_VAR_should_be_VAR
+
+to handle we_read_data_from_a_file
+
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	set dataFile to file sourceFile
+	put dataFile
+end we_read_data_from_a_file
+
+to handle we_store_data_in_a_file
+	put ResourcePath("CalculatorData.txt")
+end we_store_data_in_a_file
+
+to handle we_can_do_calculations_with_the_data
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	set dataFile to file sourceFile
+	put line 1 of dataFile
+	put item 1 of line 1 in dataFile into a
+	put item 2 of line 1 in dataFile into b
+	put item 3 of line 1 in dataFile into c
+	
+	put a*b into product
+	If product = c
+		log "The product ("&product&") of the of the first two items in line 1 is the same as the third item ("&c&") in line 1. The test succeds."
+	else
+		log "The product (" &product&") and item 3 of the first line in the file"&&c&&"are different. The test fails"
+	end if
+	
+end we_can_do_calculations_with_the_data

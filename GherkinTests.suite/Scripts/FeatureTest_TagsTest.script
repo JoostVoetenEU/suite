@@ -1,0 +1,27 @@
+﻿
+to handle I_have_Scenario_NUM
+	params num1
+	
+	Log "This is Scenario " && num1
+	
+end I_have_Scenario_NUM
+
+to handle I_run_it_from_a_CLI
+	Log "I am going to run this scenario at a CLI"
+	
+end I_run_it_from_a_CLI
+
+to handle it_should_log_messages_indicating_scenario_NUM_ran
+	params num1
+	
+	Log  "Scenario" && num1 && "ran"
+	
+end it_should_log_messages_indicating_scenario_NUM_ran
+
+
+to handle it_should_log_a_message_indicating_Scenario_NUM_ran
+	params num1
+	
+	Log "Scenario " && num1 && "ran"
+	
+end it_should_log_a_message_indicating_Scenario_NUM_ran

@@ -1,0 +1,15 @@
+﻿BeginTestCase " -- Feature Regression Test -- "
+//This feature file was created to run in the ePF regression tests. It is a sanity test. 
+//The scenario reads data from a file and does calculations with that data
+//The scenario outline reads numbers from its Examples section and does calculations with them
+
+runFeature "FeatureTest_Regression.feature"
+put the result into regressionFeatureResult
+//put regressionFeatureResult
+
+If regressionFeatureResult.Successes is 11
+	LogSuccess "Regression Feature test passes."
+else
+	LogError "Regression Feature test fails."
+End if
+EndTestCase " -- Feature Regression Test -- "

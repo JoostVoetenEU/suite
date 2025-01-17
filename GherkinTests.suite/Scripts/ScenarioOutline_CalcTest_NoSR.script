@@ -1,0 +1,103 @@
+﻿
+
+to handle the_calculator_is_running
+	if imageFound("CalculatorApp")
+		log "Calculator is running"
+	else 
+		log "The calculator is not running. Start the calculator."
+		Click("Win7StartMenuIcon")
+		WaitFor 10, "Searchprogramsandfiles"
+		typeText "calculator", return
+		waitFor 10, "CalculatorApp"
+	end if
+end the_calculator_is_running
+
+
+to handle and_we_clear_the_calculator
+
+	waitFor 5,"CalculatorClearButton"
+	Click "CalculatorClearButton"
+	
+end and_we_clear_the_calculator
+
+
+to handle first_number_is_VAR
+	params num1
+	
+	Typetext num1
+	
+end first_number_is_VAR
+
+
+to handle we_click_add
+
+	TypeText "+"
+	
+end we_click_add
+
+
+to handle we_click_multiply
+	
+	Click("MultiplyButton")
+	
+end we_click_multiply
+
+
+to handle second_number_is_VAR
+	params num2
+	
+	TypeText num2
+	
+end second_number_is_VAR
+
+
+to handle the_sum_is_VAR
+	params total
+	log total
+	
+	click "EqualsButton"
+	
+	wait 3
+	if ImageFound("total")
+		//if ImageFound(Text:total)
+		log "Success"
+	else
+		LogError "fail"
+	end if
+	
+end the_sum_is_VAR
+
+
+to handle the_product_is_VAR
+	params product
+	log product
+	
+	click "EqualsButton"
+	
+	wait 5
+	if ImageFound("product")
+		//if ImageFound(Text:product)
+		log "Success"
+	else
+		LogError "fail"
+	end if
+	
+	//Clear and close the Calculator App
+	waitFor 5,"CalculatorClearButton"
+	Click "CalculatorClearButton"
+	
+	//Click "WinCloseButton_red"
+	
+end the_product_is_VAR
+
+
+
+to handle given_the_calculator_is_running
+	if ImageFound("CalculatorApp") 
+		log "The calculator is running."
+	else
+		log "launch the calculator" 
+	end if
+	
+	
+end given_the_calculator_is_running

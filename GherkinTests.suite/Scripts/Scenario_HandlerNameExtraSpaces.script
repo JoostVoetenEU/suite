@@ -1,0 +1,14 @@
+﻿
+to handle I_have_a_handler
+	log "I have a handler"
+end I_have_a_handler
+
+
+to handle I_enter_the_handler_with_an_extra_space
+	log "If I create a handler with an extra space"
+end I_enter_the_handler_with_an_extra_space
+
+
+to handle the_handler_should_name_should_be_generated_with_two__underscores
+	log "The handler should be generated with two underscores in the name"
+end the_handler_should_name_should_be_generated_with_two__underscores

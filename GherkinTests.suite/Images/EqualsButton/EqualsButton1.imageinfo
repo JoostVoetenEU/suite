@@ -1,0 +1,14 @@
+﻿{
+    Bitmask = <00000000 00000000 000000f8 1f00ff03 00000000 00000000 f07f00fe 0f000000 00000000 00000000 00000000 00000000 00000000 00>;
+    BitmaskSize = "21,20";
+    HasAlpha = 1;
+    HotSpotX = "10.5";
+    HotSpotY = 10;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = "-1";
+    OriginalLocationY = "-1";
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+}

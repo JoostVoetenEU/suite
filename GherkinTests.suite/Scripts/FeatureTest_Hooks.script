@@ -1,0 +1,143 @@
+﻿
+
+to handle we_have_a_number_VAR
+	params num1
+	log num1	
+	wait random(0.3, 2.5)
+end we_have_a_number_VAR
+
+to handle a_second_number_VAR
+	params num2
+	log num2
+	wait random(0.3, 2.5)
+end a_second_number_VAR
+
+to handle we_add_VAR_with_VAR
+	params num1, num2
+	
+	set addedSum = num1 + num2
+	log addedSum
+	wait random(0.3, 2.5)
+end we_add_VAR_with_VAR
+
+
+to handle the_sum_of_VAR_and_VAR_should_be_VAR
+	params num1, num2, sum
+	
+	log "The expected sum is:" && sum
+	
+	set addedSum = num1 + num2
+	log "The resulting sum is:" && addedSum
+	wait random(0.3, 2.5)
+	
+	if addedSum = sum 
+		log "They are the same: success"
+	else 
+		log "They are not the same: fail"
+	end if
+	
+end the_sum_of_VAR_and_VAR_should_be_VAR
+
+to handle we_read_data_from_a_file
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	set dataFile to file sourceFile
+	wait random(0.3, 2.5)
+	put dataFile
+end we_read_data_from_a_file
+
+to handle we_store_data_in_a_file
+	put ResourcePath("CalculatorData.txt")
+	wait random(0.3, 2.5)
+end we_store_data_in_a_file
+
+to handle we_can_do_calculations_with_the_data
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	set dataFile to file sourceFile
+	put line 1 of dataFile
+	put item 1 of line 1 in dataFile into a
+	put item 2 of line 1 in dataFile into b
+	put item 3 of line 1 in dataFile into c
+	wait random(0.3, 2.5)
+	
+	put a*b into product
+	If product = c
+		log "The product ("&product&") of the of the first two items in line 1 is the same as the third item ("&c&") in line 1. The test succeds."
+	else
+		log "The product (" &product&") and item 3 of the first line in the file"&&c&&"are different. The test fails"
+	end if
+end we_can_do_calculations_with_the_data
+
+//Gherkin hook handlers
+to handle hook_before_scenario
+	params dict
+	Log "BeforeScenario hook" && dict
+	wait random(0.3, 2.5)
+end hook_before_scenario
+
+to handle hook_after_scenario
+	params dict
+	wait random(0.3, 2.5)
+	Log "AfterScenario hook" && dict
+end hook_after_scenario
+
+to handle hook_before_step
+	params dict
+	put "hook_before_step" && dict
+	wait random(0.3, 2.5)
+	Log "Testing BeforeStep hook"
+end hook_before_step
+
+to handle hook_after_step
+	params dict
+	put "hook_after_step" && dict
+	wait random(0.3, 2.5)
+	Log "Testing AfterStep hook"
+end hook_after_step
+
+to handle hook_before_feature
+	params dict
+	log "BeforeFeature" && dict
+	Log "Wait time" && global wait_time && "seconds"
+	wait random(0.3, 2.5)
+end hook_before_feature
+
+to handle hook_after_feature
+	params dict
+	Log "Wait time" && global wait_time && "seconds"
+	wait random(0.3, 2.5)
+	Log "AfterFeature" && dict
+end hook_after_feature
+
+
+to handle the_calculator_is_running
+	wait random(0.3, 2.5)
+end the_calculator_is_running
+
+to handle we_have_a_file_that_contains_data
+	put ResourcePath("CalculatorData.txt")
+	CaptureScreen (Name: "we_have_a_file_that_contains_data.png")
+	wait random(0.3, 2.5)
+end we_have_a_file_that_contains_data
+
+to handle the_Windows_login_panel_is_displayed
+	log "Given"
+	wait random(0.3, 2.5)
+end the_Windows_login_panel_is_displayed
+
+to handle I_enter_this_password_STR
+	params str1
+	log "When"
+	wait random(0.3, 2.5)
+end I_enter_this_password_STR
+
+
+to handle I_should_see_the_WinSeven_desktop
+	LogWarning "Then"
+	wait random(0.3, 2.5)
+end I_should_see_the_WinSeven_desktop
+
+to handle display_the_message_STR
+	params str1
+	log "And"
+	wait random(0.3, 2.5)
+end display_the_message_STR

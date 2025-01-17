@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2016-07-05 19:14:35 +0000";
+    CaptureHost = "Jeannette's Win7TestMachine";
+    CaptureScreenSize =     (
+        1564,
+        997
+    );
+    HasAlpha = 1;
+    HotSpotX = 11;
+    HotSpotY = 12;
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 948;
+    OriginalLocationY = 220;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+}

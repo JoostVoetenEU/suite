@@ -1,0 +1,11 @@
+﻿
+Log "Call feature with inclusion and exclusion tags and OR syntax."
+runFeature "FeatureTest_BasicTags", "@missingDescription, ~@severalProducts"
+put the result into testTagsResult
+put testTagsResult
+
+If testTagsResult.Successes is 3
+	LogSuccess "Feature test with tags & AND syntax passes."
+else
+	LogError "Feature test with tags & AND syntax fails."
+End if

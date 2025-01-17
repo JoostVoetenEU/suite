@@ -1,0 +1,15 @@
+﻿{
+    HasAlpha = 0;
+    HonorAlpha = 1;
+    HotSpotX = "69.5";
+    HotSpotY = 8;
+    ImageDescription = <>;
+    ImageTolerance = 1;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = "-1";
+    OriginalLocationY = "-1";
+    Precise = 1;
+    Pulsing = 0;
+    Scale = 1;
+}

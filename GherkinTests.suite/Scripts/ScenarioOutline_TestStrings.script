@@ -1,0 +1,105 @@
+﻿//Background handler for Scenario outline
+//Make sure the Win 7 login screen is displayed before the scenario outline runs
+to handle the_WinSeven_login_screen_is_displayed
+
+	If ImageFound("InvalidPasswordButton")
+		Click "InvalidPasswordOKButton"
+		exit handler
+	end if
+	If ImageFound("Win7StartMenuIcon")
+		Click "Win7StartMenuIcon"
+		wait 2
+		Click "Searchprogramsandfiles"
+		TypeText "logoff"
+		TypeText returnKey
+		wait 7
+	end if
+	end the_WinSeven_login_screen_is_displayed
+
+//Scenario handlers
+to handle the_Windows_login_panel_is_displayed
+	if ImageFound("loginPanelPassword.png")
+		log "Login panel is displayed."
+	else
+		log "The Login panel is not displayed. Stopping the login."
+		exit all
+	end if
+end the_Windows_login_panel_is_displayed
+
+to handle I_enter_this_password_STR
+	params str1
+	log str1
+	
+	Click("loginPanelPassword")
+	TypeText str1
+	click("WindowsPasswordEnterArrowButton")
+	wait 10
+end I_enter_this_password_STR
+
+to handle I_should_see_the_WinSeven_desktop
+	If ImageFound("InvalidPasswordButton")
+		LogError "Login Failed!"
+	else if ImageFound("Win7StartMenuIcon")
+		log "Password is valid."
+	End If
+end I_should_see_the_WinSeven_desktop
+
+to handle display_the_message_STR
+	params str1
+	log str1
+end display_the_message_STR
+
+//Scenario outline handlers
+
+to handle I_enter_this_password_VAR
+	params password
+	log password
+	
+	Click("loginPanelPassword")
+	TypeText password
+	TypeText returnKey
+	(*	click("WindowsPasswordEnterArrowButton")*)	
+	wait 7
+end I_enter_this_password_VAR
+
+
+to handle I_should_see_the_message_STR
+	params str1
+	
+	If ImageFound("InvalidPasswordButton") 
+		LogError "Password is incorrect."
+	else
+		log str1
+	end if	
+end I_should_see_the_message_STR
+
+(*
+to handle I_enter_this_VAR
+	params password
+	log password
+	TypeText lname
+	Click("loginPanelPassword")
+	wait 10
+end I_enter_this_VAR*)
+
+
+
+
+
+
+
+
+
+to handle I_should_see_the_WinSeven_desktop_or_a_login_failed_message
+
+	If ImageFound("InvalidPasswordButton")
+		
+		LogError "Login Failed!"
+		
+	else if ImageFound("Win7StartMenuIcon")
+		
+		log "Password is valid."
+		
+	End If	
+end I_should_see_the_WinSeven_desktop_or_a_login_failed_message
+

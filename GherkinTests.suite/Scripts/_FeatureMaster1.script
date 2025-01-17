@@ -1,0 +1,125 @@
+﻿//Gherkin support was added in release 16.10 as Feature 3160
+// Support for Gherkin tags was not included in the original release 
+// but was added in 17.1.5 as Feature 12185. 
+// steps color when they run: green = success, yellow = warning, red = error
+
+log "--------------------------------------------------------------------------------------------"
+log "                          Gherkin Feature File Tests"
+log "--------------------------------------------------------------------------------------------"
+
+//This script calls feature files in this suite
+
+Log "-------------------------------------------------------"
+BeginTestCase " -- Call Feature from Master Script -- "
+//Calling feature files from a script was implemented in Feature 12501
+//Usage: runFeature "featureName"
+
+Log "-------------------------------------------------------"
+BeginTestCase " -- Feature Regression Test -- "
+//This feature file was created to run in the ePF regression tests. It is a sanity test. 
+//The scenario reads data from a file and does calculations with that data
+//The scenario outline reads numbers from its Examples section and does calculations with them
+
+runFeature "FeatureTest_Regression.feature"
+put the result into regressionFeatureResult
+//put regressionFeatureResult
+
+If regressionFeatureResult.Successes is 11
+	LogSuccess "Regression Feature test passes."
+else
+	LogError "Regression Feature test fails."
+End if
+EndTestCase " -- Feature Regression Test -- "
+
+log "-------------------------------------------------------"
+BeginTestCase " -- Feature Test Bank Account Scenarios with Background -- "
+//This feature contains a Background keyword and a scenario and a Scenario outline
+// Background steps do not change to green or other color when they run
+
+runFeature "FeatureTest_BankAccount_usingBackground"
+put the result into testBkgrndResult
+put testBkgrndResult
+
+If testBkgrndResult.status is "Success" and testBkgrndResult.Successes is 23
+	LogSuccess "Feature test with scenarios and background key word passes."
+else
+	LogError "Feature test with scenarios and background key word fails."
+End if
+EndTestCase " -- Feature Test Bank Account Scenarios with Background -- "
+
+Log "-------------------------------------------------------"
+BeginTestCase " -- Feature Tags Test -- "
+//Gherkin tags were implemented in Feature #11935
+//Usage with tags: runFeature "featureName", "@firstTag", "@secondTag"
+
+Log "Call feature with inclusion tags and OR syntax."
+runFeature "FeatureTest_BasicTags", "@missingDescription, @severalProducts"
+put the result into testTagsResult
+put testTagsResult
+
+If testTagsResult.Successes is 6
+	LogSuccess "Feature test with tags & OR syntax passes."
+else
+	LogError "Feature test with tags & OR syntax fails."
+End if
+
+
+Log "Call feature with inclusion and exclusion tags and OR syntax."
+runFeature "FeatureTest_BasicTags", "@missingDescription, ~@severalProducts"
+put the result into testTagsResult
+put testTagsResult
+
+If testTagsResult.Successes is 3
+	LogSuccess "Feature test with tags & AND syntax passes."
+else
+	LogError "Feature test with tags & AND syntax fails."
+End if
+
+Log "Call feature with inclusion tags and AND syntax."
+runFeature "FeatureTest_BasicTags", "@severalProducts @moreProducts"
+put the result into testTagsResult
+put testTagsResult
+
+If testTagsResult.Successes is 3
+	LogSuccess "Feature test with tags & AND syntax passes."
+else
+	LogError "Feature test with tags & AND syntax fails."
+End if 
+
+EndTestCase " -- Feature Tags Test -- "
+
+
+Log "-------------------------------------------------------"
+BeginTestCase " -- Feature Test Hooks -- "
+//Gherkin hooks were implemented in Feature #12185
+
+runFeature "FeatureTest_Hooks.feature"
+put the result into testHooksResult
+//put testHooksResult
+
+If testHooksResult.status is "Success" and testHooksResult.Successes is 3
+	LogSuccess "Feature test with hooks passes."
+else
+	LogError "Feature test with hooks fails."
+End if
+
+EndTestCase " -- Feature Test Hooks -- "
+
+(*Log "-------------------------------------------------------"
+BeginTestCase " -- Feature Test AbortScenarioOnError Default -- "
+//The AbortScenarioOnError default was implemented to resolve Bug #13398
+
+runFeature "FeatureTest_ScenarioFailure.feature"
+put the result into featureFailResult
+//put featureFailResult
+
+//The number of warnings in the result should be 1 because when AbortScenarioOnError is enabled, ePF won't run the line with the warning.
+If featureFailResult.warnings is 1
+	LogSuccess "Feature test with AbortScenarioOnError default enabled & disabled passes."
+else
+	LogError "Feature test with AbortScenarioOnError default enabled & disabled   fails."
+End if
+
+EndTestCase " -- Feature Test AbortScenarioOnError Default -- "*)
+
+EndTestCase " -- Call Feature from Master Script -- "

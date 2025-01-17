@@ -1,0 +1,1 @@
+﻿put ImageFound(Text:"Joost", WaitFor:8, saveimagefile:"mikjoost.png")

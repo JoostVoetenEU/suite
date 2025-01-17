@@ -1,0 +1,17 @@
+﻿{
+    CropRectangle = "1,1,40,25";
+    HasAlpha = 1;
+    HotSpotX = "20.5";
+    HotSpotY = 13;
+    ImageDescription = <>;
+    ImageTolerance = 61;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    MaxIgnoredPixels = 5;
+    OriginalLocationX = "-1";
+    OriginalLocationY = "-1";
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchAlgorithm = TextSmoothSquare;
+}

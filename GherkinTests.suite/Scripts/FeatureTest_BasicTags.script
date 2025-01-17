@@ -1,0 +1,17 @@
+﻿
+to handle I_have_a_product_missing_a_description
+	Log "This is the Missing Product description scenario"
+	
+end I_have_a_product_missing_a_description
+
+to handle I_have_several_products
+	Log "This is the I have Several products scenario"
+end I_have_several_products
+
+to handle I_try_to_find_the_product
+	Log "I'm looking for the product"
+end I_try_to_find_the_product
+
+to handle I_can_t_find_it
+	Log "I can't find it"
+end I_can_t_find_it

@@ -1,0 +1,117 @@
+﻿//Background handlers
+
+to handle an_account_holder_has_STR
+	params str1
+	If str1 = "a valid debit card"
+		set global validCard = "true"
+	else 
+		set global validCard = "false"
+	end if
+	
+end an_account_holder_has_STR
+
+to handle an_ATM_has__NUM
+	params num1
+	
+	set global cashInATM = num1
+	put global cashInATM
+	
+end an_ATM_has__NUM
+
+
+//Scenario handlers
+
+to handle Joe_has_a_valid_credit_or_debit_card
+
+	set global ValidCard to true
+	
+end Joe_has_a_valid_credit_or_debit_card
+
+
+to handle his_account_balance_is__NUM
+	params num1
+	
+	set global accountBalance = num1
+	
+end his_account_balance_is__NUM
+
+
+to handle the_machine_contains_enough_money
+
+	put global cashInATM
+	put global accountBalance
+	
+	if global cashInATM > global accountBalance
+		log "the machine has enough money"
+	else 
+		log "The ATM does not have enough cash to process the transaction."
+	End if
+	
+end the_machine_contains_enough_money
+
+
+to handle he_inserts_his_card
+
+	If global validCard = "true" 
+		log "Joe's card is valid."
+	else 
+		log "Joe's card is invalid."
+	end if
+	
+end he_inserts_his_card
+
+to handle he_withdraws__NUM
+	params num1
+	
+	set global amtWithdrawn = num1
+	put global amtWithdrawn
+	
+end he_withdraws__NUM
+
+
+to handle the_ATM_should_dispense__NUM
+	params num1
+	
+	put global amtWithdrawn
+	put global cashInATM
+	
+	if num1 < global cashInATM and if num1 < global accountBalance
+	(*		set global cashInATM = global cashInATM - num1 
+		set global accountBalance = the accountBalance - num1*)
+		log "The withdrawl can be processed."
+	else 
+		log "The withdrawl cannot be processed."
+	end if
+	
+end the_ATM_should_dispense__NUM
+
+
+to handle his_account_balance_now_should_be__NUM
+	params num1
+	set global accountBalance = num1
+end his_account_balance_now_should_be__NUM
+
+//Scenario Outline handlers
+
+to handle account_holder_has_a_VAR
+	params validCard
+	
+	if validCard = "yes"
+		log "The card is valid. Please proceed with your transaction."
+	else 
+		log "The card is invalid. We cannot process your transaction at this time."
+		and exit
+	end if
+end account_holder_has_a_VAR
+
+
+to handle the_account_balance_is_VAR
+	params acctBal
+	
+	log "You current account balance is: $" && acctBal
+end the_account_balance_is_VAR
+
+to handle the_ATM_contains_enough_money___VAR
+	params atmBal
+	
+end the_ATM_contains_enough_money___VAR

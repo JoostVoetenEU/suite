@@ -1,0 +1,18 @@
+﻿{
+    CaptureDate = "2016-06-30 17:26:02 +0000";
+    CaptureHost = "Jeannettes Win 7 office";
+    CaptureScreenSize =     (
+        1024,
+        768
+    );
+    HasAlpha = 1;
+    HotSpotX = 41;
+    HotSpotY = 38;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 905;
+    OriginalLocationY = 388;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+}

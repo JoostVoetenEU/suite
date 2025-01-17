@@ -1,0 +1,116 @@
+﻿(*
+to handle hook_before_scenario
+	params dict
+	Log "BeforeScenario hook" && dict
+end hook_before_scenario
+
+to handle hook_after_scenario
+	params dict
+	Log "AfterScenario hook" && dict
+end hook_after_scenario
+*)
+
+to handle we_have_a_number_VAR
+	params num1
+	log num1
+	wait random(0.3, 2.5)
+end we_have_a_number_VAR
+
+to handle a_second_number_VAR
+	params num2
+	log num2
+	wait random(0.3, 2.5)
+end a_second_number_VAR
+
+to handle we_add_VAR_with_VAR
+	params num1, num2
+	
+	set addedSum = num1 + num2
+	log addedSum	
+	wait random(0.3, 2.5)
+end we_add_VAR_with_VAR
+
+
+to handle the_sum_of_VAR_and_VAR_should_be_VAR
+	params num1, num2, sum
+	
+	log "The expected sum is:" && sum
+	
+	set addedSum = num1 + num2
+	log "The resulting sum is:" && addedSum
+	Log "Wait time" && global wait_time && "seconds"
+	wait global wait_time
+	
+	if addedSum = sum 
+		log "They are the same: success"
+		else 
+		log "They are not the same: fail"
+	end if
+	wait random(0.3, 2.5)
+end the_sum_of_VAR_and_VAR_should_be_VAR
+
+to handle we_read_data_from_a_file
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	set dataFile to file sourceFile
+	Log "Wait time" && global wait_time && "seconds"
+	wait 2
+	put dataFile
+	wait random(0.3, 2.5)
+end we_read_data_from_a_file
+
+to handle we_store_data_in_a_file
+	put ResourcePath("CalculatorData.txt")
+	wait random(0.3, 2.5)
+end we_store_data_in_a_file
+
+to handle we_can_do_calculations_with_the_data
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	set dataFile to file sourceFile
+	put line 1 of dataFile
+	put item 1 of line 1 in dataFile into a
+	put item 2 of line 1 in dataFile into b
+	put item 3 of line 1 in dataFile into c
+	Log "Wait time" && global wait_time && "seconds"
+	wait 2
+	
+	put a*b into product
+	If product = c
+		log "The product ("&product&") of the of the first two items in line 1 is the same as the third item ("&c&") in line 1. The test succeds."
+	else
+		log "The product (" &product&") and item 3 of the first line in the file"&&c&&"are different. The test fails"
+	end if
+	wait random(0.3, 2.5)
+end we_can_do_calculations_with_the_data
+
+to handle the_calculator_is_running
+	wait random(0.3, 2.5)
+end the_calculator_is_running
+
+to handle we_have_a_file_that_contains_data
+	put ResourcePath("CalculatorData.txt")
+	wait random(0.3, 2.5)
+end we_have_a_file_that_contains_data
+
+to handle the_Windows_login_panel_is_displayed
+	log "Given"
+	wait random(0.3, 2.5)
+end the_Windows_login_panel_is_displayed
+
+to handle I_enter_this_password_STR
+	params str1
+	set logger to any item of (LogWarning, Log, Logerror)
+	do logger && "When"
+	wait random(0.3, 2.5)
+end I_enter_this_password_STR
+
+
+to handle I_should_see_the_WinSeven_desktop
+	log "Then"
+	wait random(0.3, 2.5)
+end I_should_see_the_WinSeven_desktop
+
+to handle display_the_message_STR
+	params str1
+	log "And"
+	wait random(0.3, 2.5)
+end display_the_message_STR

@@ -1,0 +1,15 @@
+﻿
+to handle AbortScenarioOnError_is_enabled
+
+	setDefaults AbortScenarioOnError, yes
+	
+end AbortScenarioOnError_is_enabled
+
+to handle I_run_this_failing_step
+	LogError "This step fails"
+	
+end I_run_this_failing_step
+
+to handle AbortScenarioOnError_is_disabled
+	setDefaults AbortScenarioOnError, no
+end AbortScenarioOnError_is_disabled

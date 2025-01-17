@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2015-08-06 20:31:56 +0000";
+    CaptureHost = "Jeannette's Win 7 VM VNC";
+    CaptureScreenSize =     (
+        1820,
+        966
+    );
+    HasAlpha = 1;
+    HonorAlpha = 1;
+    HotSpotX = 39;
+    HotSpotY = 10;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 915;
+    OriginalLocationY = 107;
+    Pulsing = 0;
+    Scale = 1;
+    SearchAlgorithm = TextSmoothSquare;
+}

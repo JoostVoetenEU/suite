@@ -1,0 +1,5 @@
+﻿log short name of me
+wait random(0.3, 2.5)
+log me.name
+wait random(0.3, 2.5)
+logsuccess "bye"

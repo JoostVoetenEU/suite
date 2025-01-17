@@ -1,0 +1,22 @@
+﻿{
+    CaptureDate = "2017-07-07 16:44:39 +0000";
+    CaptureHost = "Windows 7";
+    CaptureScreenSize =     (
+        1916,
+        966
+    );
+    HasAlpha = 1;
+    HotSpotX = 13;
+    HotSpotY = 12;
+    ImageDescription = <>;
+    ImageTolerance = 37;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    MaxIgnoredPixels = 3;
+    OriginalLocationX = 720;
+    OriginalLocationY = 491;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = "0.8";
+    SearchAlgorithm = TextSmoothSquare;
+}

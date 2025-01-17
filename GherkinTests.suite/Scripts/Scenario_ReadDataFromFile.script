@@ -1,0 +1,54 @@
+﻿
+to handle we_store_data_in_a_file
+
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	put sourceFile
+	
+end we_store_data_in_a_file
+
+to handle we_read_data_from_a_file
+
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	
+	put sourceFile
+	set dataFile to file sourceFile
+	put dataFile
+	
+	repeat with theData = each line of dataFile
+		put repeatIndex() & ": " & theData
+		put item 1 of theData into num1
+		put item 2 of theData into num2
+		put item 3 of theData into product	
+	end repeat
+	
+end we_read_data_from_a_file
+
+
+to handle we_can_do_calculations_with_the_data
+
+	set sourceFile to ResourcePath("CalculatorData.txt")
+	
+	put sourceFile
+	set dataFile to file sourceFile
+	put dataFile
+	
+	repeat with theData = each line of dataFile
+		put repeatIndex() & ": " & theData
+		put item 1 of theData into num1
+		put item 2 of theData into num2
+		put item 3 of theData into product	
+		
+		if product = num1 * num2 then
+			add 1 to GoodCount
+			
+		else 
+			put "Bad Data at line " & repeatIndex() & ": " & theData
+			add 1 to BadCount
+		end if
+		
+		put "Good data lines: " & GoodCount
+		put "Bad data lines: " & BadCount 	
+		
+	end repeat
+end we_can_do_calculations_with_the_data
+

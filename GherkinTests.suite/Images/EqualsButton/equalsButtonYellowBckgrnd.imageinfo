@@ -1,0 +1,20 @@
+﻿{
+    CaptureDate = "2016-06-13 22:39:39 +0000";
+    CaptureHost = "Jeannette's Win7TestMachine";
+    CaptureScreenSize =     (
+        1424,
+        774
+    );
+    HasAlpha = 1;
+    HotSpotX = 7;
+    HotSpotY = 7;
+    ImageDescription = <7b5c7274 66315c61 6e73695c 616e7369 63706731 3235325c 636f636f 61727466 31333438 5c636f63 6f617375 62727466 3137300a 7b5c666f 6e747462 6c7d0a7b 5c636f6c 6f727462 6c3b5c72 65643235 355c6772 65656e32 35355c62 6c756532 35353b7d 0a7d>;
+    ImageTolerance = 50;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 952;
+    OriginalLocationY = 410;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+}
